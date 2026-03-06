@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Montserrat:wght@900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-logo: "Montserrat", sans-serif;
+  
+  --color-brand-primary: #10b981; /* Emerald 500 */
+  --color-brand-secondary: #6366f1; /* Indigo 500 */
+  --color-brand-danger: #ef4444; /* Red 500 */
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-zinc-50 text-zinc-900 font-sans antialiased transition-colors duration-300;
+  }
+  
+  .dark body {
+    @apply bg-zinc-950 text-zinc-50;
+  }
+}
+
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm transition-all;
+}
+
+.dark .glass {
+  @apply bg-zinc-900/70 border-white/5 shadow-xl;
+}
+
+:root {
+  --theme-color: #10b981;
+}
+
+.theme-bg {
+  background-color: var(--theme-color);
+}
+
+.theme-text {
+  color: var(--theme-content-color, var(--theme-color));
+}
+
+.theme-contrast-text {
+  color: var(--theme-contrast-color, #ffffff);
+}
+
+.theme-border {
+  border-color: var(--theme-color);
+}
+
+.theme-ring {
+  --tw-ring-color: var(--theme-color);
+}
+
+.theme-bg-subtle {
+  background-color: color-mix(in srgb, var(--theme-color), transparent 90%);
+}
+
+.dark .theme-bg-subtle {
+  background-color: color-mix(in srgb, var(--theme-color), transparent 85%);
+}
+
+.theme-page-bg {
+  background-color: color-mix(in srgb, var(--theme-color), white 97%);
+}
+
+.dark .theme-page-bg {
+  background-color: color-mix(in srgb, var(--theme-color), black 96%);
+}
+
+.theme-bg-card {
+  background-color: color-mix(in srgb, var(--theme-color), white 93%);
+}
+
+.dark .theme-bg-card {
+  background-color: color-mix(in srgb, var(--theme-color), black 92%);
+}
+
+.theme-shadow {
+  --tw-shadow-color: color-mix(in srgb, var(--theme-color), transparent 80%);
+  --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.theme-shadow-lg {
+  --tw-shadow-color: color-mix(in srgb, var(--theme-color), transparent 75%);
+  --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.theme-text-bold {
+  color: color-mix(in srgb, var(--theme-content-color, var(--theme-color)), black 40%);
+}
+
+.dark .theme-text-bold {
+  color: color-mix(in srgb, var(--theme-content-color, var(--theme-color)), white 40%);
+}
